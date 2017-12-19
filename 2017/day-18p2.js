@@ -76,10 +76,8 @@ class Program{
 const programs = [new Program(0), new Program(1)];
 
 function isDone(){
-  return ((programs[0].isDone && programs[1].isDone) ||
-          (programs[0].isWaiting && programs[1].isWaiting) ||
-          (programs[0].isWaiting && programs[1].isDone) ||
-          (programs[0].isDone && programs[1].isWaiting));
+  return ((programs[0].isDone || programs[0].isWaiting) &&
+          (programs[1].isDone || programs[1].isWaiting));
 }
 
 while(!isDone()){
